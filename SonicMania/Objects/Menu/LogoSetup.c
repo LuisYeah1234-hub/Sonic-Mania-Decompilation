@@ -21,11 +21,19 @@ void LogoSetup_Update(void)
     if (!ScreenInfo) {
         LogHelpers_Print("[ERROR] ScreenInfo is NULL!");
     }
+    if (!ScreenInfo->position.x) {
+        LogHelpers_Print("[ERROR] ScreenInfo->position.x is NULL!");
+    }
+    if (!ScreenInfo->center.x) {
+        LogHelpers_Print("[ERROR] ScreenInfo->center.x is NULL!");
+    }
 
     LogHelpers_Print("[DEBUG] self pointer: %d\n", (void *)self);
     LogHelpers_Print("[DEBUG] self->state: %d\n", (void *)self->state);
 
     StateMachine_Run(self->state);
+
+    LogHelpers_Print("[DEBUG] I've passed StateMachine on logosetup!.");
 
     ScreenInfo->position.x = 0x100 - ScreenInfo->center.x;
 }
