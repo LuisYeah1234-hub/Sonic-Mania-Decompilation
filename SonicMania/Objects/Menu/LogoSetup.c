@@ -6,6 +6,7 @@
 // ---------------------------------------------------------------------
 
 #include "Game.h"
+#include "..\..\GameLink.h"
 
 ObjectLogoSetup *LogoSetup;
 
