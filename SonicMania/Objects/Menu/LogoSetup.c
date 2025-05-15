@@ -11,7 +11,19 @@ ObjectLogoSetup *LogoSetup;
 
 void LogoSetup_Update(void)
 {
+    if (!LogoSetup) {
+        PrintLog(PRINT_NORMAL, "[ERROR] LogoSetup is NULL!")
+    }
     RSDK_THIS(LogoSetup);
+    if (!self) {
+        PrintLog(PRINT_NORMAL, "[ERROR] self is NULL!");
+    }
+    if (!ScreenInfo) {
+        PrintLog(PRINT_NORMAL, "[ERROR] ScreenInfo is NULL!");
+    }
+
+    PrintLog(PRINT_NORMAL, "[DEBUG] self pointer: %d\n", (void *)self);
+    PrintLog(PRINT_NORMAL, "[DEBUG] self->state: %d\n", (void *)self->state);
 
     StateMachine_Run(self->state);
 
