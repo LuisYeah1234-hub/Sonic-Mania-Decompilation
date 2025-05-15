@@ -12,7 +12,7 @@ ObjectLogoSetup *LogoSetup;
 void LogoSetup_Update(void)
 {
     if (!LogoSetup) {
-        PrintLog(PRINT_NORMAL, "[ERROR] LogoSetup is NULL!")
+        PrintLog(PRINT_NORMAL, "[ERROR] LogoSetup is NULL!");
     }
     RSDK_THIS(LogoSetup);
     if (!self) {
