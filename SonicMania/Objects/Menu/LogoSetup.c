@@ -27,6 +27,10 @@ void LogoSetup_Update(void)
     if (!ScreenInfo->center.x) {
         LogHelpers_Print("[ERROR] ScreenInfo->center.x is NULL!");
     }
+    LogHelpers_Print("[DEBUG] LogoSetup_State_ShowLogos: %d\n", (void *)LogoSetup_State_ShowLogos);
+    LogHelpers_Print("[DEBUG] LogoSetup_State_FadeToNextLogos: %d\n", (void *)LogoSetup_State_FadeToNextLogos);
+    LogHelpers_Print("[DEBUG] LogoSetup_State_NextLogos: %d\n", (void *)LogoSetup_State_NextLogos);
+    
 
     LogHelpers_Print("[DEBUG] self pointer: %d\n", (void *)self);
     LogHelpers_Print("[DEBUG] self->state: %d\n", (void *)self->state);
@@ -57,7 +61,7 @@ void LogoSetup_Create(void *data)
         self->active    = ACTIVE_ALWAYS;
         self->visible   = true;
         self->drawGroup = 12;
-        self->state     = LogoSetup_State_ShowLogos;
+        self->state     = sku_region == REGION_JP ? LogoSetup_State_CESAScreen : LogoSetup_State_ShowLogos;
         self->stateDraw = LogoSetup_Draw_Fade;
         self->timer     = 1024;
     }
