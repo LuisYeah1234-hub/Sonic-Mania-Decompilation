@@ -27,6 +27,7 @@ void LogoSetup_Update(void)
     if (!ScreenInfo->center.x) {
         LogHelpers_Print("[ERROR] ScreenInfo->center.x is NULL!");
     }
+    LogHelpers_Print("[DEBUG] LogoSetup_State_CESAScreen: %d\n", (void *)LogoSetup_State_CESAScreen);
     LogHelpers_Print("[DEBUG] LogoSetup_State_ShowLogos: %d\n", (void *)LogoSetup_State_ShowLogos);
     LogHelpers_Print("[DEBUG] LogoSetup_State_FadeToNextLogos: %d\n", (void *)LogoSetup_State_FadeToNextLogos);
     LogHelpers_Print("[DEBUG] LogoSetup_State_NextLogos: %d\n", (void *)LogoSetup_State_NextLogos);
