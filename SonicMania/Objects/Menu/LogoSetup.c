@@ -27,7 +27,7 @@ void LogoSetup_Update(void)
     if (!ScreenInfo->center.x) {
         LogHelpers_Print("[ERROR] ScreenInfo->center.x is NULL!");
     }
-    LogHelpers_Print("[DEBUG] LogoSetup_State_CESAScreen: %d\n", (void *)LogoSetup_State_CESAScreen);
+    
     LogHelpers_Print("[DEBUG] LogoSetup_State_ShowLogos: %d\n", (void *)LogoSetup_State_ShowLogos);
     LogHelpers_Print("[DEBUG] LogoSetup_State_FadeToNextLogos: %d\n", (void *)LogoSetup_State_FadeToNextLogos);
     LogHelpers_Print("[DEBUG] LogoSetup_State_NextLogos: %d\n", (void *)LogoSetup_State_NextLogos);
@@ -106,6 +106,7 @@ bool32 LogoSetup_ImageCallback(void)
 void LogoSetup_State_CESAScreen(void)
 {
     RSDK_THIS(LogoSetup);
+	LogHelpers_Print("[DEBUG] LogoSetup_State_CESAScreen has been called!");
 
     LogoSetup->timer = 0;
 #if MANIA_USE_PLUS
@@ -121,6 +122,7 @@ void LogoSetup_State_CESAScreen(void)
 void LogoSetup_State_ShowLogos(void)
 {
     RSDK_THIS(LogoSetup);
+    LogHelpers_Print("[DEBUG] LogoSetup_State_ShowLogos has been called!");
 
     if (self->timer <= 0) {
         if (!ScreenInfo->position.y)
@@ -138,6 +140,7 @@ void LogoSetup_State_ShowLogos(void)
 void LogoSetup_State_FadeToNextLogos(void)
 {
     RSDK_THIS(LogoSetup);
+	LogHelpers_Print("[DEBUG] LogoSetup_State_FadeToNextLogos has been called!");
 
     if (++self->timer > 120 || (self->timer > 30 && ControllerInfo->keyStart.press)) {
         self->timer     = 0;
@@ -149,6 +152,7 @@ void LogoSetup_State_FadeToNextLogos(void)
 void LogoSetup_State_NextLogos(void)
 {
     RSDK_THIS(LogoSetup);
+	LogHelpers_Print("[DEBUG] LogoSetup_State_NextLogos has been called!");
 
     if (self->timer >= 1024) {
         if (ScreenInfo->position.y >= SCREEN_YSIZE) {
