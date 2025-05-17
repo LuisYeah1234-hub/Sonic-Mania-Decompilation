@@ -57,7 +57,7 @@ void LogoSetup_Create(void *data)
         self->active    = ACTIVE_ALWAYS;
         self->visible   = true;
         self->drawGroup = 12;
-        self->state     = sku_region == REGION_JP ? LogoSetup_State_CESAScreen : LogoSetup_State_ShowLogos;
+        self->state     = LogoSetup_State_ShowLogos;
         self->stateDraw = LogoSetup_Draw_Fade;
         self->timer     = 1024;
     }
